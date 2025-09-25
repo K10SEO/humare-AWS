@@ -1,0 +1,8 @@
+User-agent: Googlebot
+Allow: /
+
+User-agnet: AdsBot-Google
+Disallow:
+
+User-agent: *
+Disallow: /
