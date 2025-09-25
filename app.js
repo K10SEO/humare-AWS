@@ -25,10 +25,10 @@ const sequelize = new Sequelize(
  
 app.set("port", process.env.PORT || 3000);
 
-app.use(express.static(path.join(__dirname, "신대방휴마레/dist")));
+app.use(express.static(path.join(__dirname, "humare-AWS/dist")));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "신대방휴마레/dist/index.html"));
+    res.sendFile(path.join(__dirname, "humare-AWS/dist/index.html"));
 })
 
 app.listen(app.get("port"), async () => {
@@ -39,4 +39,5 @@ app.listen(app.get("port"), async () => {
     } catch (err) {
         console.log("DB 연결 실패", err);
     }
+
 });
