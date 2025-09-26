@@ -39,4 +39,5 @@ app.listen(app.get("port"), async () => {
     } catch (err) {
         console.log("DB 연결 실패", err);
     }
+
 });
