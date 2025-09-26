@@ -25,6 +25,26 @@ const sequelize = new Sequelize(
  
 app.set("port", process.env.PORT || 3000);
 
+app.use(express.static(path.join(__dirname, "dist"), {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css');
+        }
+        if (path.endsWith('.js')) {
+            res.setHeader('Content-Type', 'application/javascript');
+        }
+        if (path.endsWith('.webp')) {
+            res.setHeader('Content-Type', 'image/webp');
+        }
+        if (path.endsWith('.svg')) {
+            res.setHeader('Content-Type', 'image/svg+xml');
+        }
+        if (path.endsWith('.png')) {
+            res.setHeader('Content-Type', 'image/png');
+        }
+    }
+}));
+
 app.use(express.static(path.join(__dirname, "humare-AWS/dist")));
 
 app.get("/", (req, res) => {
