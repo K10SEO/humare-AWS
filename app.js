@@ -33,6 +33,14 @@ app.use('/js', express.static(path.join(__dirname, 'dist/js'), {
     }
 }));
 
+app.use('/style', express.static(path.join(__dirname, 'dist/style'), {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css');
+        }
+    }
+}));
+
 app.use(express.static(path.join(__dirname, "dist")));
 
 app.get("/", (req, res) => {
