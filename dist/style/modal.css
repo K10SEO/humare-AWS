@@ -1,0 +1,88 @@
+.pop-up{
+    
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 110;
+}
+
+.modal-container{
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    > div:nth-child(1){
+        background-color: #1B5153;
+    }
+}
+
+.modal-container img{
+    width: 100%;
+    height: 100%;
+}
+
+.pop-up div .close-icon{
+    position: absolute;
+    width: 5%;
+    height: 5%;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.modal-button{
+    width: 100%;
+    display: flex;
+    background-color: #fff;
+}
+
+.modal-button button{
+    width: 100%;
+    height: 2.5vw;
+    font-size: 1.2vw;
+    font-weight: 900;
+    background-color: transparent;
+    border: solid 0px;
+    cursor: pointer;
+}
+
+.modal-button button:nth-child(1){
+    border-right: solid 1px;
+    width: 140%;
+}
+
+@media screen and (max-width: 1199px) {
+    /* Medium devices (작은 데스크톱, 세로 모드의 태블릿)의 스타일 */
+}
+
+@media screen and (max-width: 991px) {
+    /* Small devices (가로 모드의 휴대폰, 작은 태블릿)의 스타일 */
+    .event-modal div{
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* mobile devices (세로 모드의 휴대폰) */
+    .modal-container{
+        width: 70vw;
+    }
+
+    .modal-button button{
+        height: 6vw;
+        font-size: 3vw;
+    }
+}

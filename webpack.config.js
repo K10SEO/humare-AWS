@@ -1,36 +1,60 @@
 const path = require("path");
-// 경로를 조합해주는 node.js API
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { HotModuleReplacementPlugin } = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    // target: ["web", "es5"], // ES6 지원하지 않는 브라우저에서 실행 가능
-    mode: 'development',
-	  entry: "./src/index.js",
-  	output: {
-      	filename: "bundle.js",
-      	path: path.resolve(__dirname, "dist"),
-      	// npm build (webpack) 실행 시 dist 폴더에 bundle.js 생성됨
-        clean: true, // 빌드전 빌드폴더 정리
+    mode: 'production',
+    entry: "./src/index.js",
+    output: {
+        filename: "js/bundle.js",
+        path: path.resolve(__dirname, "dist"),
+        clean: true,
+        publicPath: './',
     },
     plugins: [
         new HtmlWebpackPlugin({
-          template: path.resolve(__dirname, 'src', 'index.html'),
+            template: path.resolve(__dirname, 'src', 'index.html'),
+            inject: 'body',
         }),
-      ],
-    module : {
+        // src 폴더 전체를 그대로 복사 (index.html, index.js 제외)
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'src',
+                    to: '.',
+                    filter: (resourcePath) => {
+                        const fileName = path.basename(resourcePath);
+                        // index.html과 index.js만 제외하고 모든 파일 복사
+                        return fileName !== 'index.html' && fileName !== 'index.js';
+                    },
+                    noErrorOnMissing: true,
+                },
+            ],
+        }),
+    ],
+    module: {
         rules: [
+            // CSS는 JS에 인라인으로 포함 (별도 파일 생성 안 함)
             {
-            test: /\.css$/,
-            use: ["style-loader", "css-loader"],
-            exclude: /node_modules/,
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"],
+                exclude: /node_modules/,
             },
         ]
     },
     devServer: {
-      static: {
-        directory: path.resolve(__dirname, "docs"),
-      },
-      port: 3036,
+        static: [
+            {
+                directory: path.resolve(__dirname, "src"),
+                publicPath: "/src",
+            },
+            {
+                directory: path.resolve(__dirname, "dist"),
+                publicPath: "/",
+            }
+        ],
+        port: 3036,
+        hot: true,
+        open: true,
     },
 };

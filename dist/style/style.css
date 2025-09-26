@@ -1,0 +1,337 @@
+:root{
+    --white-icon-color: invert(96%) sepia(86%) saturate(6133%) hue-rotate(185deg) brightness(127%) contrast(100%);
+}
+
+@font-face {
+    font-family: 'TmonMonsori';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TAEBAEKmilkyway';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/TAEBAEKmilkyway.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes dropdown {
+    from {
+        transform: translateY(-300px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+    
+}
+
+@keyframes dropdownReverse {
+    from{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(-300px);
+    }
+}
+
+.drop{
+    animation: dropdown 1s forwards;
+}
+
+.reverse{
+    animation: dropdownReverse 1s forwards;
+}
+
+@keyframes logoBackgroundColor {
+    from{
+        background-color: white;
+    }
+    to{
+        background-color: orange;
+    }
+}
+
+/* header */
+header{
+    width: 100%;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+}
+
+.top-menuBar {
+    font-family: 'TAEBAEKmilkyway';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#334536;
+    padding: 0 30px 0 10px;
+    color: #ffff;
+}
+
+.main-logo {
+    width: 20vw;
+    height: 100%;
+    padding: 20px;
+}
+
+.menu {
+    width: 100%;
+}
+
+.menu-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.1vw;
+    font-weight: 900;
+    gap: 2vw;
+    cursor: pointer;
+
+    li > a{
+        text-decoration: none;
+        color: #ffff;
+    }
+
+    li > a:hover{
+        color: #f5e400;
+        transition-duration: 0.3s;
+    }
+}
+
+.tell-number {
+    text-align:end;
+    font-family: 'TmonMonsori';
+    font-size: 2vw;
+    text-decoration: none;
+    color: #ffff;
+    text-wrap: nowrap;
+}
+
+.mobile-menu,
+.menu-icon{
+    display:none;
+}
+
+#top-icon{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    color: rgb(76, 98, 120);
+    border-radius: 50%;
+    box-shadow: 5px 5px 20px -8px #000;
+    background-color: #ffff;
+    cursor: pointer;
+}
+/* header */
+
+
+/* main */
+main{
+    width: 100%;
+    height: 100%;
+}
+.warp{
+    font-family: 'TAEBAEKmilkyway';
+    margin-top: 91px;
+    padding: 0 15%;
+    font-weight: 900;
+    overflow-x: hidden;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    gap: 5vw;
+}
+
+.content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    
+    > img{
+        width: 100%;
+        /* aspect-ratio: 3/2; */
+    }
+}
+
+.menu-item {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vw;
+    background-color: #334536;
+    padding: 15px 0;
+    border-radius: 50px;
+    color: #ffff;
+    gap: 3vw;
+    box-shadow: 3px 3px 6px 2px #8a8c91;
+
+    > img{
+        width: 12vw;
+    }
+}
+
+#banner-cover {
+    margin-bottom: 50px;
+    box-shadow: 3px 3px 6px 2px #8a8c91;
+}
+
+#banner-cover img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.logoTell-detail{
+    font-size: 2rem;
+    margin: 2% 0;
+    color: gray;
+}
+
+footer {
+    background-color: #1b51538c;
+    color: white;
+
+    overflow: hidden;
+    padding: 50px;
+
+    text-align: center;
+}
+
+footer img {
+    width: 200px;
+}
+
+footer dl {
+    line-height: 1.5;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.footer-number{
+    font-weight: 800;
+    color: #f5e400;
+}
+
+.copyright-produce {
+    margin-top: 10px;
+}
+
+.copyright-produce small {
+    font-size: 13px;
+}
+
+#makeSite-contact{
+    line-height: 3;
+    color: gray;
+}
+
+@media screen and (max-width: 1199px) {
+    /* Medium devices (작은 데스크톱, 세로 모드의 태블릿)의 스타일 */
+}
+
+@media screen and (max-width: 991px) {
+    /* Small devices (가로 모드의 휴대폰, 작은 태블릿)의 스타일 */
+}
+
+@media screen and (max-width: 767px) {
+     /* header */
+     .top-menuBar{
+        min-width: 297px;
+        padding: 0 15px;
+        justify-content: space-between;
+        gap: 5%;
+    }
+
+    .menu-list{
+        display: none;
+    }
+
+    .main-logo{
+        width: 35vw;
+        padding: 20px 7px 20px;
+    }
+
+    .menu-icon{
+        display: inline;
+        filter: var(--white-icon-color);
+        width: 6vw;
+        cursor: pointer;
+    }
+
+    .tell-number{
+        font-size: 4vw;
+        /* width: 100%; */
+    }
+
+    .warp{
+        padding: 1%;
+        margin-top: 0;
+    }
+
+    .mobile-menu{
+        display: inline-block;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 30px;
+        position: absolute;
+        transform: translateY(-300px);
+        z-index: -1;
+    }
+
+    .mobileMenuList{
+        font-family: 'TAEBAEKmilkyway';
+        font-weight: 900;
+        line-height: 2.5;
+    }
+
+    /* header */
+
+    /* main */
+    .image-box img{
+        height: 100%;
+    }
+
+    #banner-cover{
+        margin-top: 20px;
+    }
+
+    #banner-cover{
+        margin-bottom: 20px;
+    }
+
+    .logoTell-detail{
+        font-size: 8px;
+    }
+
+    .main-content article h2{
+        width: 300px;
+        height: 50px;
+        font-size: 1.2rem;
+        padding: 0 30px;
+
+        & > span{
+            vertical-align: 9px;
+            margin-left: 3px;
+        }
+    }
+
+    .main-content article h2 img{
+        width: 120px;
+    }
+
+    .menu-item p{
+        font-size: 0.8rem;
+    }
+
+    #top-icon{
+        bottom: 10px;
+        right: 10px;
+    }
+}
