@@ -25,7 +25,13 @@ const sequelize = new Sequelize(
  
 app.set("port", process.env.PORT || 3000);
 
-
+app.use('/js', express.static(path.join(__dirname, 'dist/js'), {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.js')) {
+            res.setHeader('Content-Type', 'application/javascript');
+        }
+    }
+}));
 
 app.use(express.static(path.join(__dirname, "dist")));
 
